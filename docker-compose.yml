@@ -1,0 +1,6 @@
+services:
+  webappwithredis:
+    image: ${DOCKER_REGISTRY-}webappwithredis
+    build:
+      context: .
+      dockerfile: WebAppWithRedis/Dockerfile
