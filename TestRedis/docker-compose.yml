@@ -1,0 +1,16 @@
+name: "test-redis"
+services:
+  testredis:
+    image: ${DOCKER_REGISTRY-}testredis
+    container_name: backend
+    depends_on:
+      - redis
+    build:
+      context: .
+      dockerfile: TestRedis/Dockerfile
+
+  redis:
+    image: redis:latest
+    container_name: redis_container
+    restart: always
+    command: ["redis-server", "--appendonly", "yes"]
